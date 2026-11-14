@@ -23,6 +23,10 @@ describe('VolumeSlider Component', () => {
     expect(handleChange).toHaveBeenCalledWith(70);
   });
 
+  it('debe mostrar el slider en 80 cuando defaultValue es 80', () => {
+    render(<VolumeSlider label="Prueba" defaultValue={80} />);
+    expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '80');
+  });
   it('debe mostrar el texto del label correctamente', () => {
     render(<VolumeSlider label="Volumen" />);
     expect(screen.getByText('Volumen')).toBeInTheDocument();
